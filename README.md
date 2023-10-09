@@ -1,6 +1,6 @@
 # ReaderHub
 This Django web application allows users to interact with books and each other. Users can favorite books, look at book descriptions, and rate them. Book information is found
-from the Open Library API. Users can message each other and make posts about books for interaction.
+from the Open Library API. Users can message each other, make posts about books, and see critic and user ratings for interaction.
 
 ## Dependencies
 
