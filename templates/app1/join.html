@@ -1,0 +1,37 @@
+<html>
+  <head>
+    {% include "bootstrap.html" %}
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'CSS/join.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class = "jumbotron ">
+        <h1>Join</h1>
+        <form method="POST">{% csrf_token %}
+          <table class = "join-table1">
+            <p>First Name:<br>
+              {{ join_form.first_name }}</p>
+              <p></p>
+              <p>Last Name:<br>
+              {{ join_form.last_name }}</p>
+            <p>
+            <p>Email:<br>
+              {{ join_form.email }}</p>
+            <p>
+            <p>Username:<br>
+            {{ join_form.username }}</p>
+            <p></p>
+            <p>Password:<br>
+            {{ join_form.password }}</p><br>
+            <p>
+            <tr><td>
+              <input type="submit" class="btn btn-primary btn-lg" value = "Join"/>
+            </td></tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

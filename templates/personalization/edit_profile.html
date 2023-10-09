@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Profile</title>
+        {% include "bootstrap.html" %}
+        {% load static %}
+        <link rel="stylesheet" href="{%static 'CSS/edit_profile.css' %}"/>
+    </head>
+    <body>
+        {% include "nav.html" %}
+        <div class="row justify-content-left b">
+        <div class="col-auto">
+          <br>
+        <div class="jumbotron">
+            <h1><b>Enter <i>{{user}}<i> Profile</b></h1>
+            <form method="POST" action = "" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class = "formtable">
+                    {{ form_data.as_table }}
+                    <tr>
+                        <td></td>
+                        <td>
+                          <input type="submit" class="btn btn-success btn-lg" name="edit" value="Save">
+                          <a href="/personalization/{{ user.username }}/" class="btn btn-secondary">Cancel</a>
+                        </td>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+      </div>
+    </div>
+    </body>
+</html>

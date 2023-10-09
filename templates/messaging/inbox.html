@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Messaging</title>
+        {% include "bootstrap.html" %}
+        {% load static %}
+        <script src="{% static 'JS/deleteModal.js' %}"></script>
+    </head>
+    <body>
+        {% include "nav.html" %}
+        <div class="jumbotron">
+                  <h2>Incoming Messages</h2>
+                  {% if incoming %}
+                    <table id="inbox-incoming" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>From</th>
+                                <th>Content</th>
+                                <th>Sent at</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        {% for row in incoming %}
+                            <tr>
+                                <td>{{ row.sender }}</td>
+                                <td>{{ row.content }}</td>
+                                <td>{{ row.sent_at }}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="#" onclick="confirmDeleteModal({{ row.id }})">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no incoming messages to display.</p>
+                {% endif %}
+                  <h2>Outgoing Messages</h2>
+                  {% if outgoing %}
+                    <table id="inbox-outgoing" class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>To</th>
+                                <th>Content</th>
+                                <th>Sent at</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        {% for row in outgoing %}
+                            <tr>
+                                <td>{{ row.receiver }}</td>
+                                <td>{{ row.content }}</td>
+                                <td>{{ row.sent_at }}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="#" onclick="confirmDeleteModal({{ row.id }})">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no outgoing messages to display.</p>
+                {% endif %}
+            <form method="GET" action="/inbox/compose_message/">
+                <input type="submit" class="btn btn-primary" value="Compose Message">
+            </form>
+        </div>
+
+        <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Delete Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="x">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Do you really want to delete this message?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <span id="deleteButton"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

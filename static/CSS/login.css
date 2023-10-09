@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(250, 249, 246);
+}
+
+.jumbotron{
+  opacity: .90;
+  border-style: solid;
+  color: forestgreen
+
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}

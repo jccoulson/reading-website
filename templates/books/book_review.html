@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Books</title>
+  {% include "bootstrap.html" %}
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'CSS/book_review.css' %}"/>
+    {% include "nav.html" %}
+</head>
+<body>
+
+<form method="POST" action = "/books/book_view/{{book_id}}/" enctype="multipart/form-data" align = "center">
+  <!--Display book cover and title with the review form -->
+  <div class = "book_preview">
+    <div class = "cover">
+      {% if book_cover == 'no_book'%}
+        <img src="https://www.freeiconspng.com/uploads/no-image-icon-6.png" class = "cover" alt="Book Cover">
+      {%else%}
+        <img class="cover" src="{{book_cover}}" alt="Book Cover">
+      {%endif%}
+    </div>
+      <div class = "title">
+        <b>{{book_title}}</b>
+      </div>
+  </div>
+  <br><br><br><br>
+
+  <p class = "write_review">
+    <i><b>Write your review!</b></i>
+  </p>
+    {% csrf_token %}
+    {{form_data.text_review}}
+  <br><br>
+  <p class = "rate_review">
+    <i>Rate your book out of 5</i>
+  </p>
+
+  <!--Rating is done through radio with star images-->
+  <div class = "pick_rating">
+      {% for radio in form_data.star_review %}
+      <div class="rating_radio">
+        <img src="{%static 'permanent_images/star.png' %}" width="20" height="20" />
+          {{ radio }}
+      </div>
+      {% endfor %}
+  </div>
+  <br><br><br>
+  <input type="submit" class="btn btn-info" name="submit_review" value = "Submit Review">
+</form>
+</body>
+</html>

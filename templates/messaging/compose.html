@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Compose Message</title>
+        {% include "bootstrap.html" %}
+    </head>
+    <body>
+        {% include "nav.html" %}
+        <div class="jumbotron">
+            <h1>Compose Message</h1>
+            <!--error message if user does not exist -->
+            {% if dne %}
+            <div class="alert alert-danger" role="alert">
+                Error: The username "{{ dne }}" does not exist.
+            </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form_data.as_table }}
+                    <tr>
+                        <td>
+                            <a href="/inbox/" class="btn btn-secondary">Cancel</a>
+                            <input type="submit" class="btn btn-primary" name="add" value="Compose Message">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

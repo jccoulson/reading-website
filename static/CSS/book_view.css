@@ -1,0 +1,177 @@
+
+body{
+  background-color: rgb(250, 249, 246);
+}
+
+.search{
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.cover-col{
+  text-align: center;
+}
+.cover-col h3{
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+.cover{
+  margin-top: 2rem;
+  width: 80%;
+}
+.author{
+  margin-top: 1rem;
+  border:solid;
+  border-color: dimgray;
+  border-radius: 50%;
+  width: 50%;
+}
+.score_icon{
+  height: 2rem;
+}
+
+.review-col{
+  padding: 0;
+  text-align: center;
+  width: 11rem;
+}
+.review-col h3{
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.book-title{
+  margin-top: 2.5rem;
+  margin-left: 0;
+}
+.book-title-col{
+  padding-left: 0;
+}
+.book-title-col h3{
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.better-btn{
+  font-size: 0.9rem;
+  color: rgba(128, 128, 128, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(128, 128, 128, 0.75);
+  border-radius: 40px;
+  background: transparent;
+}
+.better-btn:hover {
+  color: #FFF;
+  background: rgba(128, 128, 128, 0.75);
+  border: 2px solid rgba(128, 128, 128, 0.75);
+}
+
+
+
+.paragraph{
+  font-size:17px;
+  text-indent: 40px;
+  margin-left:10%; margin-right:10%
+}
+
+/*description*/
+.container1{
+  margin:auto;
+  position:relative;
+  right:170px;
+  bottom:50px;
+}
+
+/*subjects*/
+.container2{
+  margin:auto;
+  position:relative;
+  left:45px;
+  top: 50px;
+}
+
+.title {
+  margin:auto;
+  position:relative;
+  left:120px;
+  top: 50px;
+  font-size: 30px;
+}
+
+.author_photo {
+  margin:auto;
+  border:solid;
+  border-color: dimgray;
+  float:left;
+  border-radius: 50%;
+  position:relative;
+  left:140px;
+  top: 80px;
+  width: 5%;
+}
+
+.name {
+  margin:auto;
+  position:relative;
+  left: 0px;
+  top: 180px;
+  font-size: 19px;
+}
+
+.btn_center {
+  text-align: center;
+}
+.review { /*previously my_review*/
+  margin:auto;
+  width: 50%;
+  border:solid;
+  border-width: 1px;
+}
+
+/*.my_review {
+  border: solid;
+  border-width: 5px;
+  display: inline-block;
+}*/
+.indent-text {
+  text-indent: 40px;
+  margin-left:5%; margin-right:5%
+}
+
+.aggregate_display {
+  text-align: center;
+  font-size: 30px;
+}
+
+.scrollbar {
+  overflow-y: scroll;
+  position: relative;
+  left: 200px;
+  height: 300px;
+}
+
+.review_type {
+  text-align: center;
+  position: relative;
+  font-size: 30px;
+  left: 170px;
+}
+
+
+
+
+/*div for reviews*/
+/*
+.collapse {
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
+}
+*/

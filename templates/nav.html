@@ -1,0 +1,42 @@
+<style>
+.navbar {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: white;
+}
+</style>
+{% load static %}
+<body>
+<link rel="stylesheet" href="{%static 'CSS/nav.css' %}" />
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand home" href="/">ReaderHub</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/personalization/{{ user.username }}"><img class = "profile-icon" src = "{%static 'permanent_images/profile_icon.png' %}" width = 33 height = 33></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/posts/"><img class = "posts-icon" src = "{%static 'permanent_images/posts_icon.png' %}" width = 40 height = 33></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/books/"><img class = "magnify-icon" src = "{%static 'permanent_images/book_icon.png' %}" width = 33 height = 33></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/addFriends/"><img class = "follow-icon" src = "{%static 'permanent_images/follow_icon.png' %}" width = 33 height = 33></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/inbox/"><img class = "inbox-icon" src = "{%static 'permanent_images/inbox_icon.png' %}" width = 40 height = 33></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link admin" href="/admin" target="_blank">Admin</a>
+      </li>
+  </div>
+  <div style="text-align:right;">
+    {% if user.is_authenticated %}
+        <a class="nav-link" href="/logout/" style="color:black;">Logout {{user.username}}</a>
+    {% else %}
+        <a class="nav-link" href="/login/" style="color:black;">Login</a>
+    {% endif %}
+  </div>
+</nav>
+</body>

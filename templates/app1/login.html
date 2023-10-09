@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    {% include "bootstrap.html" %}
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'CSS/login.css' %}"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <br>
+      <div class = "jumbotron text-center">
+        <h1>Login</h1>
+        <form action="/login/" method="POST">{% csrf_token %}
+            <p>Username:<br>
+            {{ login_form.username }}</p>
+            <p></p>
+            <p>Password:<br>
+            {{ login_form.password }}</p><br>
+            <p>
+              <input type="submit" class="btn btn-primary" value = "Login"/>
+            </p>
+        </form>
+        <div style="text-align: center;">No account? Click <a href="/join">here</a> to join.</div>
+      </div>
+    </div>
+  </body>
+</html>

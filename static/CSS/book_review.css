@@ -1,0 +1,40 @@
+body{
+  background-color: rgb(250, 249, 246);
+}
+
+.rating_radio {
+  margin: auto;
+  float: left;
+  padding: 10px
+}
+
+.pick_rating {
+  float:right;
+  margin: auto;
+  width: 50%;
+
+}
+
+.write_review {
+  margin: auto;
+  font-size:30px;
+/*  float: right;
+  width: 80%;*/
+}
+.rate_review {
+  margin: auto;
+  font-size:20px;
+}
+
+.cover{
+  width: 100%;
+}
+
+.book_preview {
+  padding: 20px;
+  float: left;
+}
+
+.btn-info {
+  margin: auto;
+}

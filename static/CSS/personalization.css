@@ -1,0 +1,168 @@
+.prof-container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.profile-card {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: justify;
+  align-self: center;
+}
+
+.prof-h3 {
+  text-align: center;
+  margin: 1rem 0rem 1rem;
+  font-size: 20px;
+}
+
+.prof-text {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  font-size: 20px;
+  align-self: center;
+}
+
+.profile-card img {
+  display: block;
+  margin: 0 auto;
+}
+
+.prof-img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+}
+
+.posts-col {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.posts-card {
+  width: 100%;
+}
+
+.posts-card p {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-size: 14px;
+  text-align: left;
+}
+
+.posts-card a {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.posts-img {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 50%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.fav-book-cards {
+  margin-left: 5px;
+  margin-right: 5px;
+  max-width: 25rem;
+}
+
+.edit {
+  font-size: 16px;
+  color: rgba(128, 128, 128, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(128, 128, 128, 0.75);
+  border-radius: 40px;
+  background: transparent;
+}
+
+.edit:hover {
+  color: #FFF;
+  background: rgba(128, 128, 128, 0.75);
+  border: 2px solid rgba(128, 128, 128, 0.75);
+}
+
+
+/*.card-block {
+  width: 90%;
+  height: 100%;
+}
+
+.card-block p {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.5rem;
+}*/
+
+
+.rounded {
+  max-width: 75px;
+  max-height: 75px;
+  margin: 0 auto;
+}
+
+td {
+  color: white;
+}
+
+h3 {
+  margin: 2rem 0rem 1rem;
+  font-family: Roboto;
+}
+
+body {
+  background-color: rgb(250, 249, 246);
+}
+
+.another-btn {
+  border-style: solid;
+  border-color: white;
+  opacity: .98;
+}
+
+.first-btn {
+  border-style: solid;
+  border-color: white;
+
+  font-size: 35px;
+  opacity: .98;
+  padding: 2% 0;
+}
+
+.book-card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.book-cards {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.book-card {
+  border: 2px solid;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  width: 20rem
+}

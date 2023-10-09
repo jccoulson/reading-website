@@ -1,0 +1,87 @@
+  body {
+    background-color: rgb(250, 249, 246);
+  }
+  /*.card{
+    border-style: solid;
+    border-color: white;
+  }*/
+  .profile-card {
+    border-radius: 10%;
+    width: 80%;
+  }
+
+  .post-card {
+    border-radius: 10%;
+    width: 40%;
+  }
+
+  .basic_info {
+    border-right: double thick;
+    text-align: center;
+  }
+
+  .page-links {
+    font-size:20px;
+    float: left;
+    padding-left: 20px;
+  }
+
+  .activities {
+    border-style: solid;
+    border-width: 1px;
+
+  }
+
+  .book-img {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:110%;
+  }
+
+  .book-imgf {
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:110%;
+  }
+
+  .book-imgr {
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:60%;
+  }
+  .post-content {
+    text-align: center;
+  }
+
+  .post-link {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .favorite-content {
+    text-align:center;
+    font-size: 30px;
+    padding-top: 40px;
+
+  }
+
+  .favorite-card{
+    border-radius: 10%;
+    width: 10%;
+  }
+
+  .star-img{
+    width:2%
+  }
+
+  .review-content {
+    text-align: center;
+  }
+
+  .activity-links {
+    color: green;
+  }

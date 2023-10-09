@@ -1,0 +1,9 @@
+body {
+  background-color: rgb(250, 249, 246);
+}
+
+.jumbotron{
+  opacity: .90;
+  border-style: solid;
+  color: forestgreen
+}

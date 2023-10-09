@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Books</title>
+  {% include "bootstrap.html" %}
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'CSS/books.css' %}"/>
+    {% include "nav.html" %}
+</head>
+<body>
+  <br>
+  <!--search bar form -->
+    <form method="POST" action = "" enctype="multipart/form-data" align = "center">
+      <div class = "search">
+        {% csrf_token %}
+          {{form_data}}
+        <input type="submit" class="btn btn-info" name="search_books" value="Search">
+      </div>
+    </form>
+  <br>
+  <!--success message if user favorited book-->
+  {% if favorited_title %}
+  <br><br><br>
+    <center><h1><i>You have favorited the book {{favorited_title}}!</i></h1></center>
+  {%endif%}
+
+  <!--search results display-->
+  <div class = "cards">
+    {%for book in book_preview%}
+      <div class="card">
+        <img class="card-img-top yes-img" src="{{book.1}}" alt="Card image cap">
+      <div class = "card-body">
+        <p class = "card-text" >{{book.0}}</p>
+      </div>
+      <div class="card-body text-center">
+        <form method="POST" action="/books/">
+          <button input type="submit" class="btn btn-info" value="{{book.3}}" name = "favorite">Favorite</button>
+          {% csrf_token %}
+        </form>
+        <br> <br>
+        <a class="btn btn-danger btn-lg " href="/books/book_view/{{ book.2 }}/">View Book</a>
+      </div>
+      </div>
+    {%endfor%}
+  </div>
+</body>
+</html>

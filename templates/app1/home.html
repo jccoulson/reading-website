@@ -1,0 +1,130 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  {% include "bootstrap.html" %}
+  {% include "nav.html" %}
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'CSS/home.css' %}"/>
+</head>
+<body>
+  <div class = "grid_container">
+    <div class = "row h-100 info_row">
+      <div class = "col-2 basic_info">
+        <br>
+        <!--Links to different pages -->
+        {% if current_profile.personal_image %}
+          <img class="profile-card" src="{{current_profile.personal_image.url }}">
+        {% else %}
+          <img class="profile-card" src="{%static 'permanent_images/default_profile.png' %}">
+        {% endif %}
+        <br>
+        <h3>{{current_profile.user}}</h3>
+        <br>
+        <p class = "page-links">
+          <a  href="/personalization/{{ user.username }}"><img class = "profile-icon" src = "{%static 'permanent_images/profile_icon.png' %}" width = 60 height = 55>
+          View My Profile
+          </a>
+        </p>
+        <br>
+        <p class = "page-links">
+          <a href="/posts/"><img class = "posts-icon" src = "{%static 'permanent_images/posts_icon.png' %}" width = 60 height = 50>
+            Make a Post
+          </a>
+        </p>
+        <br>
+        <p class = "page-links">
+          <a href="/books/"><img class = "book-icon" src = "{%static 'permanent_images/book_icon.png' %}" width = 60 height = 50>
+            Search for a Book
+          </a>
+        </p>
+        <p class = "page-links">
+          <a href="/addFriends/"><img class = "follow-icon" src = "{%static 'permanent_images/follow_icon.png' %}" width = 60 height = 50>
+            Follow People
+          </a>
+        </p>
+        <p class = "page-links">
+          <a href="/inbox/"><img class = "inbox-icon" src = "{%static 'permanent_images/inbox_icon.png' %}" width = 60 height = 50>
+            Message Someone
+          </a>
+        </p>
+      </div>
+      <div class = "col">
+        <!-- Display the feed of posts, reviews, and favoriting books-->
+        {% for act, act_pic in activity %}
+          <div class = "row activities">
+          {% if act.post%}
+            <div class = "col-1 post-cover">
+              <img src="{{act.post.book_object.favorite_cover}}" class="book-img">
+            </div>
+            <div class = "col-9 post-content">
+              <h3><b>{{act.post.title}}</b></h3>
+              {{act.post.content}}
+            </div>
+            <div class = "col-2 post-link">
+              <a class = "activity-links" href="/personalization/{{ act.user }}">
+                {% if act_pic %}
+                  <img class="post-card" src="{{act_pic.url }}">
+                {% else %}
+                  <img class="post-card" src="{%static 'permanent_images/default_profile.png' %}">
+                {% endif %}
+                <br>
+                <i>Posted By: {{act.user}}</i>
+              </a>
+            </div>
+          {% elif act.bookreview %}
+            <div class = "col-2 review-cover">
+              <img src="{{act.bookreview.book_cover}}" class="book-imgr">
+            </div>
+            <div class = "col-10 review-content">
+              <h3><b>
+              <a class = "activity-links" href="/personalization/{{ act.user }}">  {{act.user}} </a>
+                has left a review on <i>{{act.bookreview.book_title}}</i></b></h3>
+              <div class = "review-star">
+                {%if act.bookreview.star_review == 1 %}
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                {%elif act.bookreview.star_review == 2%}
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                {%elif act.bookreview.star_review == 3%}
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                {%elif act.bookreview.star_review == 4%}
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                {%elif act.bookreview.star_review == 5%}
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                  <img class="star-img" src="{%static 'permanent_images/star.png' %}">
+                {%endif%}
+              </div>
+              <br>
+              {{act.bookreview.text_review}}
+            </div>
+          {%elif act.favoritebooks%}
+            <div class = "favorite-content col-11">
+            <i>
+              <a  class = "activity-links" href="/personalization/{{ act.user }}">
+              {% if act_pic %}
+                <img class="favorite-card" src="{{act_pic.url }}">
+              {% else %}
+                <img class="favorite-card" src="{%static 'permanent_images/default_profile.png' %}">
+              {% endif %}
+                {{act.user}}
+              </a>
+              has favorited the book {{act.favoritebooks.favorite_title}}!</i>
+            <br>
+            <br>
+            </div>
+          {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>

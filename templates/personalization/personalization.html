@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Profile</title>
+  {% include "bootstrap.html" %}
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'CSS/personalization.css' %}" />
+</head>
+
+<body>
+  {% include "nav.html" %}
+  <div class="container-fluid px-0 prof-container">
+    <div class="row text-center no-gutters">
+      <!--Display profile pic-->
+      <div class="col-md-3 profile-card">
+        {% if profile.personal_image %}
+        <img class="prof-img rounded-circle" src="{{profile.personal_image.url }}" alt="Card image cap">
+        {% else %}
+        <img class="prof-img rounded-circle" src="{%static 'permanent_images/default_profile.png' %}"
+          alt="Card image cap">
+        {% endif %}
+        <h3 class="text-center prof-h3">{{ profile.user }}</h3>
+      </div>
+      <!--Display about user -->
+      <div class="col prof-text">
+        <div class="d-flex p-2">
+          <p class="psteps" style="margin-bottom: 0;">{{ profile.about_user|linebreaksbr }}</p>
+        </div>
+      </div>
+      <!--Edit/follow button-->
+      <div class="col-sm-2 align-self-center">
+        {% if user.get_username == req_user %}
+          <td><a class="btn edit" href="/personalization/edit_profile/{{ profile.id }}/">Edit</a>
+        {% else %}
+          {% if al_fol %}
+            <td><a class="btn edit" href="/inbox/">Message</a>
+          {% else %}
+            <form action="/personalization/{{ profile.user.username }}/" method="POST">
+              <button input type="submit" class="btn edit" value="{{ profile.user.username }}" name = "follow">Follow</button>
+              {% csrf_token %}
+            </form>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid px-0 prof-container">
+    <div class="row text-center no-gutters">
+
+      <!--Dsiplay posts-->
+      <div class="col-4 posts-col">
+        <p class="text-center title"><b>Posts</b></p>
+        {% if posts %}
+        <!--"|slice":3" indicates only show 3-->
+        {% for row in posts|slice:":3" %}
+        <div class="card" style="margin-bottom: 5px;">
+          <div class="card-body posts-card">
+            <h5 class="card-title" style="text-align: left;">{{ row.title }}</h5>
+            <p class="card-text">{{ row.content }}</p>
+            <a href="/books/book_view/{{ row.book_object.favorite_id }}/" class="card-link">{{ row.book_object.favorite_title }}</a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      <!--Dsiplay library -->
+      <div class="col">
+        <p class="text-center title"><b>{% if user.get_username == req_user %} Your {% else %} {{ profile.user }}'s {% endif %} favorites </b></p>
+        {% if favorite_books %}
+        {% for book in favorite_books %}
+        <figure class="figure fav-book-cards" style="float:left">
+          {% if book.favorite_cover == 'no_book' %}
+          <img class="card-img-top img-fluid" src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
+            alt="No book cover found">
+          {%else%}
+          <img src="{{ book.favorite_cover }}" class="img-fluid" style="max-width: 100%;" alt="{{ book.favorite_title }} book cover">
+          {%endif%}
+          <figcaption class="figure-caption">{{ book.favorite_title }}</figcaption>
+          </figure>
+        {%endfor%}
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

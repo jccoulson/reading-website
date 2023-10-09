@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Add Post</title>
+        {% include "bootstrap.html" %}
+    </head>
+    <body>
+        {% include "nav.html" %}
+        <div class="jumbotron">
+            <h1>Add Post</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form_data.as_table }}
+                    <tr>
+                        <td>
+                            <a href="/posts/" class="btn btn-secondary">Cancel</a>
+                            <input type="submit" class="btn btn-primary" name="add" value="Add Post">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

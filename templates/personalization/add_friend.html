@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Follow</title>
+        {% include "bootstrap.html" %}
+        {% load static %}
+        <link rel="stylesheet" href="{%static 'CSS/add_friend.css' %}"/>
+    </head>
+    <body>
+        {% include "nav.html" %}
+      <div class = "grid-container">
+        <div class="row b">
+          <div class = "col-4">
+          </div>
+          <div class="col-4">
+            <br>
+            <br>
+              <form action='/addFriends/' method='post'>
+                  {% csrf_token %}
+                  {{ form }}
+                  <input type='submit' value='Submit'>
+              </form>
+              {% if dne %}
+              <div class="alert alert-danger" role="alert">
+                  Error: The username "{{ dne }}" does not exist.
+              </div>
+              {% endif %}
+        </div>
+        <div class "col-4">
+        </div>
+    </div>
+    <div class = "row justify-content-left">
+      <div class = "col-4">
+      </div>
+      <div class = "col-4">
+        {% if following or followers%}
+        <div class="jumbotron text-center">
+            {% if following %}
+              <h1>Following:</h1>
+            {% endif %}
+            {% for usering in following %}
+                <li>{{ usering.following_user.username }}</li>
+            {% endfor %}
+            {% if followers %}
+              <h1>Followers:</h1>
+            {% endif %}
+            {% for userer in followers %}
+                <li>{{ userer.user.username }}</li>
+            {% endfor %}
+        </div>
+      {%endif%}
+      </div>
+      <div class = "col-4">
+      </div>
+    </div>
+  </div>
+    </body>
+</html>
